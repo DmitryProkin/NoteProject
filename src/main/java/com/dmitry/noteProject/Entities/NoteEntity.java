@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Note", schema = "public", catalog = "notebase")
+@Table(name = "note", schema = "public", catalog = "notebase")
 public class NoteEntity {
     private int id;
     private String name;

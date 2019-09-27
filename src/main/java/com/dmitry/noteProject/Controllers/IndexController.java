@@ -26,27 +26,28 @@ public class IndexController {
         ModelAndView model = new ModelAndView();
         List<NoteEntity> nodeList = (List<NoteEntity>) noteRepository.findAll();
         model.addObject("nodeList", nodeList );
-        model.setViewName("note/index");
-       model.addObject("note", new NoteEntity());
-        return model;
-    }
-
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public ModelAndView NewNote() {
-
-        ModelAndView model = new ModelAndView();
-//        System.out.println("NoteName !!!!!!! = " + NoteName );
         model.addObject("note", new NoteEntity());
-        model.setViewName("note/form");
+        model.setViewName("note/index");
 
         return model;
     }
+//
+//    @RequestMapping(value = "/new", method = RequestMethod.GET)
+//    public ModelAndView NewNote() {
+//
+//        ModelAndView model = new ModelAndView();
+////        System.out.println("NoteName !!!!!!! = " + NoteName );
+//        model.addObject("note", new NoteEntity());
+//        model.setViewName("note/index");
+//
+//        return model;
+//    }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ModelAndView create(@Valid NoteEntity note, BindingResult result) {
+    public ModelAndView save(@Valid NoteEntity note, BindingResult result) {
         ModelAndView model = new ModelAndView();
         if (result.hasErrors()) {
-            model.addObject("entity", note);
+            model.addObject("note", note);
             model.setViewName("note/index");
             return model;
         }

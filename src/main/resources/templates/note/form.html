@@ -1,22 +1,22 @@
+<form
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        th:fragment="formNote (entity) "
 
-
-    <form
-            xmlns="http://www.w3.org/1999/xhtml"
-            xmlns:th="http://www.thymeleaf.org"
-            th:fragment="formNote (note) "
-
-            id="form1" style="display: none;" th:action="@{/note/}" method="post" th:object="${note}" >
-        <div class="form-group" >
-            <label for="formGroupExampleInput">Example label</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input name your note" th:value="*{name}">
-            <div class="mb-3">
-                <label for="validationTextarea" >Textarea</label>
-                <textarea class="form-control is-invalid" id="validationTextarea"  th:value="*{message}"  placeholder="Required example textarea" ></textarea>
-                <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block"> Save </button>
+        id="form1" style="display: none;" th:action="@{/note/}" method="post" th:object="${entity}">
+    <div class="form-group">
+        <label>Example label</label>
+        <input type="text" class="form-control" name="name" placeholder="input name your note" required
+               th:value="*{name}">
+        <div class="mb-3">
+            <label>Textarea</label>
+            <textarea class="form-control is-invalid" name="message" th:value="*{message}"
+                      placeholder="Required example textarea"></textarea>
+            <div class="invalid-feedback">
+                Please enter a message in the textarea.
             </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block"> Save</button>
         </div>
+    </div>
 
-    </form>
+</form>

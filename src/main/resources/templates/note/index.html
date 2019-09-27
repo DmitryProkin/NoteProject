@@ -30,19 +30,16 @@
     Open exist note
 </button>
 <!--<div th:replace="note/form.html :: formNote(entity = ${note})">-->
-<div th:replace="note/form.html :: formNote(note = ${note})">
+<div th:replace="note/form.html :: formNote(entity = ${note})">
 
-<!--        xmlns="http://www.w3.org/1999/xhtml"-->
-<!--        xmlns:th="http://www.thymeleaf.org"-->
-<!--        th:fragment="formNote (entity) "-->
 
-<!--<form id="form1" style="display: none;" th:action="@{/note/}" method="post" th:object="${note}">-->
+<!--<form id="form1"  th:action="@{/note/}" method="post" th:object="${note}">-->
 <!--    <div class="form-group" >-->
-<!--        <label for="formGroupExampleInput">Example label</label>-->
-<!--        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input name your note" required th:value="*{name}">-->
+<!--        <label >Example label</label>-->
+<!--        <input type="text" class="form-control" name="name" placeholder="input name your note" required th:value="*{name}">-->
 <!--        <div class="mb-3">-->
-<!--            <label for="validationTextarea" >Textarea</label>-->
-<!--            <textarea class="form-control is-invalid" id="validationTextarea"  th:value="*{message}" placeholder="Required example textarea" ></textarea>-->
+<!--            <label >Textarea</label>-->
+<!--            <textarea class="form-control is-invalid" name="message"  th:value="*{message}" placeholder="Required example textarea" ></textarea>-->
 <!--            <div class="invalid-feedback">-->
 <!--                Please enter a message in the textarea.-->
 <!--            </div>-->
