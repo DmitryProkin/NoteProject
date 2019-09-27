@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Note SunLeave</title>
+
+    <script>
+        function disp(form) {
+            if (form.style.display == "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+<h2>Начало положено</h2>
+<!--<a th:href="@{/note/new}">-->
+<button type="button" class="btn btn-primary btn-lg btn-block"  onclick="disp(document.getElementById('form1'))" >
+    New note
+</button>
+<!--</a>-->
+<button type="button" class="btn btn-primary btn-lg btn-block" onclick="disp(document.getElementById('exit'))">
+    Open exist note
+</button>
+<!--<div th:replace="note/form.html :: formNote(entity = ${note})">-->
+<div th:replace="note/form.html :: formNote(note = ${note})">
+
+<!--        xmlns="http://www.w3.org/1999/xhtml"-->
+<!--        xmlns:th="http://www.thymeleaf.org"-->
+<!--        th:fragment="formNote (entity) "-->
+
+<!--<form id="form1" style="display: none;" th:action="@{/note/}" method="post" th:object="${note}">-->
+<!--    <div class="form-group" >-->
+<!--        <label for="formGroupExampleInput">Example label</label>-->
+<!--        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input name your note" required th:value="*{name}">-->
+<!--        <div class="mb-3">-->
+<!--            <label for="validationTextarea" >Textarea</label>-->
+<!--            <textarea class="form-control is-invalid" id="validationTextarea"  th:value="*{message}" placeholder="Required example textarea" ></textarea>-->
+<!--            <div class="invalid-feedback">-->
+<!--                Please enter a message in the textarea.-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary btn-lg btn-block"> Save </button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</form>-->
+
+</div>
+<div id="exit">
+    <th:block th:each="curNote : ${nodeList}">
+        <div>
+            <h4 th:text="${curNote.name}"></h4>
+            <span th:text="${curNote.message}"></span>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>
