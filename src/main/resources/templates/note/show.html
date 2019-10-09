@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div th:with="baseUrl=('/note/'+${note.id})" style="margin:30px">
+    <form id="formOrder">
+        <div  class="row d-print-none bg-gray">
+            <h1 class="col-12">
+                Show note
+            </h1>
+
+            <div class="col-12">
+                <a class="btn btn-primary" th:href="@{/note/}">Back</a>
+                <a class="btn btn-success" th:href="@{${baseUrl}+'/edit'}">Edit</a>
+                <a class="btn btn-danger" th:href="@{${baseUrl}+'/delete'}">Delete</a>
+            </div>
+
+            <div class="col-sm-2 col-12">
+                Title:
+            </div>
+            <div class="col-sm-10 col-12 text-left" th:text="${note.name}">
+
+            </div>
+
+            <div class="col-sm-2 col-12">
+                Text:
+            </div>
+            <div class="col-sm-10 col-12 text-left"  style="width: 200px" th:text="${note.message}">
+
+            </div>
+
+            <div class="col-sm-2 col-12">
+                Date Create
+            </div>
+            <div class="col-sm-10 col-12 text-left" th:text="${note.dateCreate}">
+            </div>
+
+            <div class="col-sm-2 col-12">
+                Date Update
+            </div>
+            <div class="col-sm-10 col-12 text-left" th:text="${note.dateUpdate}">
+            </div>
+        </div>
+    </form>
+</div>
+</body>

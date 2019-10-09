@@ -50,13 +50,38 @@
 <!--</form>-->
 
 </div>
-<div id="exit">
-    <th:block th:each="curNote : ${nodeList}">
-        <div>
-            <h4 th:text="${curNote.name}"></h4>
-            <span th:text="${curNote.message}"></span>
-        </div>
-    </th:block>
+<div id="exit" style="display: none;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Date Create</th>
+                <th scope="col">Date Update</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <th:block th:each="notes : ${nodeList}">
+                <tr>
+                    <td th:text="${notes.getName()}"></td>
+                    <td th:text="${notes.dateCreate}"></td>
+                    <td th:text="${notes.dateUpdate}"></td>
+                    <td th:with="baseUrl=('/note/'+${notes.id})">
+                        <a class="btn btn-outline-success" th:href="@{${baseUrl}}">View</a>
+                        <a class="btn btn-outline-warning" th:href="@{${baseUrl}+'/edit'}">Edit</a>
+                        <a class="btn btn-outline-danger" th:href="@{${baseUrl}+'/delete'}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+<!--    <th:block th:each="curNote : ${nodeList}">-->
+<!--        <div>-->
+<!--            <h4 th:text="${curNote.name}"></h4>-->
+<!--            <span th:text="${curNote.message}"></span>-->
+<!--        </div>-->
+<!--    </th:block>-->
 </div>
 </body>
 </html>

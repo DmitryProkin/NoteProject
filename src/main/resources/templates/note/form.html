@@ -4,18 +4,35 @@
         th:fragment="formNote (entity) "
 
         id="form1" style="display: none;" th:action="@{/note/}" method="post" th:object="${entity}">
-    <div class="form-group">
-        <label>Example label</label>
-        <input type="text" class="form-control" name="name" placeholder="input name your note" required
-               th:value="*{name}">
-        <div class="mb-3">
-            <label>Textarea</label>
-            <textarea class="form-control is-invalid" name="message" th:value="*{message}"
-                      placeholder="Required example textarea"></textarea>
-            <div class="invalid-feedback">
-                Please enter a message in the textarea.
+    <div class="container " style="margin-top: 30px;">
+
+        <div class="row">
+            <input type="hidden" th:value="*{id}" name="id">
+            <div class=" col-sm-1">
+                <label>Title:</label>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block"> Save</button>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  name="name" placeholder="input name your note" required
+                       th:value="*{name}">
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-1 ">
+                <label>Text note:</label>
+            </div>
+            <div class="col-sm-7 text-left">
+                <textarea class="form-control is-invalid" style="height: 200px"  name="message" th:value="*{message}"
+                          placeholder="Input text your note"></textarea>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-1 ">
+
+            </div>
+            <div class="actions col-sm-7">
+                <button type="submit" class="btn btn-primary btn-lg btn-block"> Save</button>
+            </div>
         </div>
     </div>
 

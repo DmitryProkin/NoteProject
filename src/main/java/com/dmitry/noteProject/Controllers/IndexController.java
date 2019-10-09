@@ -31,17 +31,6 @@ public class IndexController {
 
         return model;
     }
-//
-//    @RequestMapping(value = "/new", method = RequestMethod.GET)
-//    public ModelAndView NewNote() {
-//
-//        ModelAndView model = new ModelAndView();
-////        System.out.println("NoteName !!!!!!! = " + NoteName );
-//        model.addObject("note", new NoteEntity());
-//        model.setViewName("note/index");
-//
-//        return model;
-//    }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ModelAndView save(@Valid NoteEntity note, BindingResult result) {
@@ -53,6 +42,15 @@ public class IndexController {
         }
         noteRepository.save(note);
         model.setViewName("redirect:/note/");
+        return model;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView show(@PathVariable (value = "id") int id){
+        ModelAndView model = new ModelAndView();
+        NoteEntity note  = noteRepository.findById(id).get();
+        model.addObject("note", note);
+        model.setViewName("note/show");
         return model;
     }
 }
