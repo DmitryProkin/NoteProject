@@ -40,6 +40,10 @@ public class IndexController {
             model.setViewName("note/index");
             return model;
         }
+        if(note.getId() != 0 ) {
+            note.setDateCreate(noteRepository.findById(note.getId()).get().getDateCreate());
+        }
+
         noteRepository.save(note);
         model.setViewName("redirect:/note/");
         return model;
@@ -52,5 +56,23 @@ public class IndexController {
         model.addObject("note", note);
         model.setViewName("note/show");
         return model;
+    }
+
+//    @RequestMapping(value ="/{id}/edit", method = RequestMethod.GET)
+//    public  ModelAndView edit(@PathVariable (value = "id") int id ){
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("note",noteRepository.findById(id));
+//        model.setViewName("note/edit");
+//        return model;
+//
+//    }
+
+    @RequestMapping(value ="/{id}/delete", method = RequestMethod.GET)
+    public ModelAndView delete(@PathVariable (value = "id") int id){
+        ModelAndView model = new ModelAndView();
+        noteRepository.deleteById(id);
+        model.setViewName("redirect:/note/");
+        return model;
+
     }
 }

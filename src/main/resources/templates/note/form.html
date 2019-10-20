@@ -7,7 +7,7 @@
     <div class="container " style="margin-top: 30px;">
 
         <div class="row">
-            <input type="hidden" th:value="*{id}" name="id">
+            <input type="hidden" th:value="*{id}" name="id" >
             <div class=" col-sm-1">
                 <label>Title:</label>
             </div>
@@ -22,7 +22,7 @@
                 <label>Text note:</label>
             </div>
             <div class="col-sm-7 text-left">
-                <textarea class="form-control is-invalid" style="height: 200px"  name="message" th:value="*{message}"
+                <textarea class="form-control" style="height: 200px"  required  name = "message" th:text="*{message}"
                           placeholder="Input text your note"></textarea>
             </div>
         </div>

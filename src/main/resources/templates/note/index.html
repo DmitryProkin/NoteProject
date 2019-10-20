@@ -33,22 +33,6 @@
 <div th:replace="note/form.html :: formNote(entity = ${note})">
 
 
-<!--<form id="form1"  th:action="@{/note/}" method="post" th:object="${note}">-->
-<!--    <div class="form-group" >-->
-<!--        <label >Example label</label>-->
-<!--        <input type="text" class="form-control" name="name" placeholder="input name your note" required th:value="*{name}">-->
-<!--        <div class="mb-3">-->
-<!--            <label >Textarea</label>-->
-<!--            <textarea class="form-control is-invalid" name="message"  th:value="*{message}" placeholder="Required example textarea" ></textarea>-->
-<!--            <div class="invalid-feedback">-->
-<!--                Please enter a message in the textarea.-->
-<!--            </div>-->
-<!--            <button type="submit" class="btn btn-primary btn-lg btn-block"> Save </button>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--</form>-->
-
 </div>
 <div id="exit" style="display: none;">
     <table class="table table-striped">
@@ -69,7 +53,7 @@
                     <td th:text="${notes.dateUpdate}"></td>
                     <td th:with="baseUrl=('/note/'+${notes.id})">
                         <a class="btn btn-outline-success" th:href="@{${baseUrl}}">View</a>
-                        <a class="btn btn-outline-warning" th:href="@{${baseUrl}+'/edit'}">Edit</a>
+<!--                        <a class="btn btn-outline-warning" th:href="@{${baseUrl}+'/edit'}">Edit</a>-->
                         <a class="btn btn-outline-danger" th:href="@{${baseUrl}+'/delete'}">Delete</a>
                     </td>
                 </tr>
